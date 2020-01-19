@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "absolute",
     alignSelf: "center",
-    top: 120,
+    top: 150,
 
     width: 200,
     height: 200,
-    borderRadius: "100%",
+    borderRadius: 100,
     backgroundColor: "#567BFF",
     borderWidth: 10,
     borderColor: "#FFF"
@@ -28,22 +28,23 @@ const styles = StyleSheet.create({
 
     width: 140,
     height: 140,
-    borderRadius: "100%",
+    borderRadius: 100,
     backgroundColor: "#fff"
   },
   streakStyle: {
     position: "relative",
     width: 100,
     textAlign: "center",
-    fontSize: 12,
-    color: "#232323 "
+    fontSize: 11,
+    color: "#232323"
   },
   numStyle: {
     position: "relative",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 50,
-    color: "#567BFF"
+    color: "#567BFF",
+    margin: -20
   },
   dayStyle: {
     position: "relative",

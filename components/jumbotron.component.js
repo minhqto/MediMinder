@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 const jumbotronStyles = StyleSheet.create({
   jumboStyling: {
     width: "100%",
-    height: 180
+    height: 220
   },
   textStyles: {
     textAlign: "center",
