@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Image } from "react-native";
 import PillComponent from "./components/pill.component";
 import Jumbotron from "./components/jumbotron.component";
 import medInfo from "./data/medications.json";
 import MediCounter from "./components/mediCounter.component";
 //import PillOverlay from "./components/pilloverlay.component";
-import Overlay from "react-native-modal-overlay";
+import Modal from "react-native-modal";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,24 +13,18 @@ class App extends React.Component {
     this.state = {
       setOverlay: false,
       pills: medInfo.medication, //this is an array
-      modalVisible: true
+      isModalVisible: false
     };
   }
-  onClose = () => this.setState({ modalVisible: false });
-
+  toggleModal = () => {
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+  };
   render() {
     return (
       <View
         style={this.state.setOverlay ? styles.placeOverlay : styles.container}
       >
-        <Overlay
-          visible={this.state.modalVisible}
-          onClose={this.onClose}
-          closeOnTouchOutside
-        >
-          <Text>Hello</Text>
-        </Overlay>
-        <Jumbotron name="Candice G." />
+        <Jumbotron name="Alex S." />
         <MediCounter count={20} />
         <View style={styles.pillsPreviewContainer}>
           <View style={styles.todayContainer}>
@@ -46,10 +40,24 @@ class App extends React.Component {
             numberOfPills={item.frequency}
             key={item.id}
             onPress={() => {
-              this.setState({ setOverlay: true });
+              this.setState({ isModalVisible: true });
             }}
           />
         ))}
+        <Modal isVisible={this.state.isModalVisible}>
+          <View style={{ flex: 1 }}>
+            <View>
+              <Image
+                style={{ width: 500, height: 500, alignContent: "center" }}
+                source={{
+                  uri:
+                    "https://facebook.github.io/react-native/img/tiny_logo.png"
+                }}
+              ></Image>
+            </View>
+            <Button title="Close" onPress={this.toggleModal} />
+          </View>
+        </Modal>
       </View>
     );
   }
