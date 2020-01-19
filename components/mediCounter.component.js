@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "absolute",
     alignSelf: "center",
-    top: 150,
+    top: 200,
 
     width: 200,
     height: 200,
