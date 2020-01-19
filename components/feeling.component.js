@@ -15,7 +15,7 @@ class FeelingComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      feeling: null
+      feeling: ""
     };
   }
   onPress = () => {
@@ -50,19 +50,30 @@ class FeelingComponent extends React.Component {
         <Text style={styles.text}>Check if you have any side effects</Text>
 
         <Picker
-          value={""}
           selectedValue={this.state.feeling}
           style={styles.selection}
           onValueChange={(itemValue, itemIndex) =>
             this.setState({ feeling: itemValue })
           }
         >
-          <Picker.Item label="Nausea" value="nausea" />
-          <Picker.Item label="Trouble-sleeping" value="trouble-sleeping" />
-          <Picker.Item label="Nervousness" value="nervousness" />
-          <Picker.Item label="Tremors" value="tremors" />
-          <Picker.Item label="Sexual problems" value="sexual-problems" />
-          <Picker.Item label="Other" value="other" />
+          <Picker.Item itemPosition={1} label="Nausea" value="nausea" />
+          <Picker.Item
+            itemPosition={2}
+            label="Trouble-sleeping"
+            value="trouble-sleeping"
+          />
+          <Picker.Item
+            itemPosition={3}
+            label="Nervousness"
+            value="nervousness"
+          />
+          <Picker.Item itemPosition={4} label="Tremors" value="tremors" />
+          <Picker.Item
+            itemPosition={5}
+            label="Sexual problems"
+            value="sexual-problems"
+          />
+          <Picker.Item itemPosition={6} label="Other" value="other" />
         </Picker>
 
         <TouchableOpacity style={styles.button} onPress={this.onPress}>
@@ -75,18 +86,20 @@ class FeelingComponent extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 30,
     alignSelf: "center",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-around",
-    height: 300,
+    justifyContent: "space-evenly",
+    height: 400,
     paddingTop: 10,
     paddingHorizontal: 30,
     borderRadius: 10,
     shadowOpacity: 0.3,
     shadowRadius: 10,
     shadowColor: "#000",
-    shadowOffset: { height: 0, width: 0 }
+    shadowOffset: { height: 0, width: 0 },
+    backgroundColor: "white"
   },
   imageContainer: {
     display: "flex",

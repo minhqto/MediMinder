@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     position: "relative",
     alignSelf: "center",
 
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     position: "relative",
     width: 100,
     textAlign: "center",
-    fontSize: 11,
+    fontSize: 12,
     color: "#232323"
   },
   numStyle: {

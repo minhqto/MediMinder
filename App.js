@@ -35,21 +35,22 @@ class App extends React.Component {
           <View style={styles.todayContainer}>
             <Text style={styles.todayText}>Today</Text>
           </View>
+          {/* The below dynamically loads the medication array and makes pill components! */}
+          {this.state.pills.map((item, key) => (
+            <PillComponent
+              name={item.given_name}
+              description={item.formal_name}
+              take={item.taken}
+              numberOfPills={item.frequency}
+              key={item.id}
+              // onPress={() => {
+              //   this.setState({ isModalVisible: true });
+              // }}
+            />
+          ))}
         </View>
-        {/* The below dynamically loads the medication array and makes pill components! */}
-        {this.state.pills.map((item, key) => (
-          <PillComponent
-            name={item.given_name}
-            description={item.formal_name}
-            take={item.taken}
-            numberOfPills={item.frequency}
-            key={item.id}
-            onPress={() => {
-              this.setState({ isModalVisible: true });
-            }}
-          />
-        ))}
-        <Modal isVisible={this.state.isModalVisible}>
+
+        {/* <Modal isVisible={this.state.isModalVisible}>
           <View style={{ flex: 1 }}>
             <View>
               <Image
@@ -62,7 +63,7 @@ class App extends React.Component {
             </View>
             <Button title="Close" onPress={this.toggleModal} />
           </View>
-        </Modal>
+        </Modal> */}
       </View>
     );
   }

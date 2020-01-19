@@ -1,6 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
-import { AuthSession } from "expo";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  Image
+} from "react-native";
+
+import Modal from "react-native-modal";
+import PillProfile from "./pillProfile.component";
+import FeelingComponent from "./feeling.component";
 //import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
@@ -22,7 +32,8 @@ const styles = StyleSheet.create({
 
     width: 335,
     height: 72,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    marginBottom: 10
   },
   nameContainer: {
     width: "70%"
@@ -69,13 +80,43 @@ class PillComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      setOverlay: false
+      setOverlay: false,
+      isModalVisible: false
     };
   }
+  toggleModal = () => {
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+  };
   render() {
     const { name, description, numberOfPills, taken } = this.props;
+    if (this.state.isModalVisible) {
+      return (
+        <Modal isVisible={this.state.isModalVisible}>
+          <TouchableOpacity
+            style={{
+              alignItems: "center",
+              borderRadius: 15,
+              backgroundColor: "#567BFF",
+              width: 70,
+              alignSelf: "center",
+              padding: 10
+            }}
+            title="Close"
+            onPress={this.toggleModal}
+          >
+            <Text style={{ color: "white" }}>Close</Text>
+          </TouchableOpacity>
+          <FeelingComponent />
+        </Modal>
+      );
+    }
     return (
-      <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {
+          this.setState({ isModalVisible: true });
+        }}
+      >
         <View style={styles.nameContainer}>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
