@@ -38,8 +38,13 @@ class App extends React.Component {
           {/* The below dynamically loads the medication array and makes pill components! */}
           {this.state.pills.map((item, key) => (
             <PillComponent
+              id={item.id}
+              imgUrl={item.img}
               name={item.given_name}
               description={item.formal_name}
+              treatment={item.treatment}
+              frequency={item.frequency}
+              effects={item["side-effects"]}
               take={item.taken}
               numberOfPills={item.frequency}
               key={item.id}
