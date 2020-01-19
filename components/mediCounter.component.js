@@ -1,48 +1,68 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-
+import { LinearGradient } from "expo-linear-gradient";
 const styles = StyleSheet.create({
-  container: {
+  outerCircle: {
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    //alignContent: "center",
-    marginTop: 190
+    alignSelf: "center",
+    top: 120,
+
+    width: 200,
+    height: 200,
+    borderRadius: "100%",
+    backgroundColor: "#567BFF",
+    borderWidth: 10,
+    borderColor: "#FFF"
+  },
+  innerCircle: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+    alignSelf: "center",
+
+    width: 140,
+    height: 140,
+    borderRadius: "100%",
+    backgroundColor: "#fff"
   },
   streakStyle: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: 20,
-    //lineHeight: 78,
-    color: "#000000"
+    position: "relative",
+    width: 100,
+    textAlign: "center",
+    fontSize: 12,
+    color: "#232323 "
   },
   numStyle: {
-    fontFamily: "Poppins",
+    position: "relative",
     fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: 52,
-    //lineHeight: 78,
+    fontWeight: "bold",
+    fontSize: 50,
     color: "#567BFF"
   },
   dayStyle: {
-    fontFamily: "Poppins",
+    position: "relative",
     fontStyle: "normal",
     fontWeight: "normal",
-    fontSize: 20,
-    //ineHeight: 78,
-    color: "#000000"
+    fontSize: 15,
+    color: "#232323"
   }
 });
 
-const MediCounter = ({ count, streak, days }) => {
+const MediCounter = ({ count }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.streakStyle}>{streak}</Text>
-      <Text style={styles.numStyle}>{count}</Text>
-      <Text style={styles.dayStyle}>{days}</Text>
-    </View>
+    <LinearGradient colors={["#5F9FFF", "#567BFF"]} style={styles.outerCircle}>
+      <View style={styles.innerCircle}>
+        <Text style={styles.streakStyle}>medi streak</Text>
+        <Text style={styles.numStyle}>{count}</Text>
+        <Text style={styles.dayStyle}>Days</Text>
+      </View>
+    </LinearGradient>
   );
 };
 
