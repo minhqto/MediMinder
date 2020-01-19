@@ -3,8 +3,11 @@ import { View, StyleSheet, Text } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     position: "absolute",
-    alignContent: "center",
+    //alignContent: "center",
     marginTop: 190
   },
   streakStyle: {
