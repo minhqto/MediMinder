@@ -2,29 +2,61 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import PillComponent from "./components/pill.component";
 import Jumbotron from "./components/jumbotron.component";
-import PillProfile from "./components/pillProfile.component";
-<<<<<<< HEAD
 import medInfo from "./data/medications.json";
+import MediCounter from "./components/mediCounter.component";
+//import PillOverlay from "./components/pilloverlay.component";
+import Overlay from "react-native-modal-overlay";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      setOverlay: false
+      setOverlay: false,
+      pills: medInfo.medication, //this is an array
+      modalVisible: true
     };
   }
+  onClose = () => this.setState({ modalVisible: false });
+
   render() {
     return (
       <View
         style={this.state.setOverlay ? styles.placeOverlay : styles.container}
       >
-        <Jumbotron name="Good morning, Candice G." />
+        <Overlay
+          visible={this.state.modalVisible}
+          onClose={this.onClose}
+          closeOnTouchOutside
+        >
+          <Text>Hello</Text>
+        </Overlay>
+        <Jumbotron name="Candice G." />
+        <MediCounter count={20} />
         <View style={styles.pillsPreviewContainer}>
-        <View style={styles.todayContainer}>
-          <Text style={styles.todayText}>Today</Text>
+          <View style={styles.todayContainer}>
+            <Text style={styles.todayText}>Today</Text>
+          </View>
         </View>
-        </View>
-        <PillComponent
+        {/* The below dynamically loads the medication array and makes pill components! */}
+        {this.state.pills.map((item, key) => (
+          <PillComponent
+            name={item.given_name}
+            description={item.formal_name}
+            take={item.taken}
+            numberOfPills={item.frequency}
+            key={item.id}
+            onPress={() => {
+              this.setState({ setOverlay: true });
+            }}
+          />
+        ))}
+      </View>
+    );
+  }
+}
+
+{
+  /* <PillComponent
           name={medInfo.medication[0].given_name}
           description={medInfo.medication[0].formal_name}
           numberOfPills={medInfo.medication[0].frequency}
@@ -32,10 +64,7 @@ class App extends React.Component {
           onPress={() => {
             this.setState({ setOverlay: true });
           }}
-        />
-      </View>
-    );
-  }
+        /> */
 }
 
 const styles = StyleSheet.create({
