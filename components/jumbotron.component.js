@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { AppLoading } from "expo";
 
 const jumbotronStyles = StyleSheet.create({
   jumboStyling: {
@@ -21,6 +22,27 @@ const jumbotronStyles = StyleSheet.create({
 const Jumbotron = ({ name }) => {
   return (
     <View>
+      <Image
+        style={{
+          top: 30,
+
+          zIndex: 1,
+          position: "absolute",
+          right: 350
+        }}
+        source={require("../assets/book-24px.svg")}
+      ></Image>
+      <Image
+        style={{
+          width: 50,
+          top: 30,
+          height: 300,
+          zIndex: 1,
+          position: "absolute",
+          left: 350
+        }}
+        source={require("../assets/Group-17.png")}
+      ></Image>
       <LinearGradient
         colors={["#5F9FFF", "#567BFF"]}
         style={{ padding: 15, alignItems: "center" }}

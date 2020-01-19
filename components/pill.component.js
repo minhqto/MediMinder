@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     shadowOffset: { height: 0, width: 0 },
 
     width: 335,
-    height: 72,
+    height: 100,
     backgroundColor: "#fff",
     marginBottom: 10
   },

@@ -6,7 +6,8 @@ import {
   TouchableHighlight,
   View,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet
 } from "react-native";
 
 import medicationInfo from "../data/medications.json";
@@ -68,40 +69,6 @@ const PillProfile = ({
   );
 };
 
-<<<<<<< HEAD
-  render() {
-    return (
-      <View style={{ padding: 45 }}>
-        {/* Sets modal animation/configuration */}
-
-        {/* Actual contents of Modal */}
-        <View style={{ margin: 22 }}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "flex-start"
-            }}
-          >
-            <Text style={{ color: "white" }}>
-              Adderall - Amphetamine (25mg)
-            </Text>
-            <Text> </Text>
-            <Text> </Text>
-            <Text> </Text>
-          </View>
-        </View>
-
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
-        >
-          <Text style={{ color: "white" }}> Show Capsule Details </Text>
-        </TouchableHighlight>
-      </View>
-    );
-=======
 const styles = StyleSheet.create({
   container: {
     marginTop: 30,
@@ -118,7 +85,6 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: { height: 0, width: 0 },
     backgroundColor: "white"
->>>>>>> 6c333fa4758783bdc6ff4e592b14d46e53ddb26e
   }
 });
 

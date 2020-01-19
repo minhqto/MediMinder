@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  ScrollView
+} from "react-native";
 import PillComponent from "./components/pill.component";
 import PillProfile from "./components/pillProfile.component";
 import Jumbotron from "./components/jumbotron.component";
-
-import PillProfile from "./components/pillProfile.component";
-
 import medInfo from "./data/medications.json";
 import MediCounter from "./components/mediCounter.component";
 import FeelingComponent from "./components/feeling.component";
 
 //import PillOverlay from "./components/pilloverlay.component";
 import Modal from "react-native-modal";
+//import { ScrollView } from "react-native-gesture-handler";
 
 class App extends React.Component {
   constructor(props) {
@@ -28,9 +33,7 @@ class App extends React.Component {
   };
   render() {
     return (
-      <View
-        style={this.state.setOverlay ? styles.placeOverlay : styles.container}
-      >
+      <View>
         <Jumbotron name="Alex S." />
         <MediCounter count={20} />
         <View style={styles.pillsPreviewContainer}>
@@ -38,18 +41,20 @@ class App extends React.Component {
             <Text style={styles.todayText}>Today</Text>
           </View>
           {/* The below dynamically loads the medication array and makes pill components! */}
-          {this.state.pills.map((item, key) => (
-            <PillComponent
-              name={item.given_name}
-              description={item.formal_name}
-              take={item.taken}
-              numberOfPills={item.frequency}
-              key={item.id}
-              // onPress={() => {
-              //   this.setState({ isModalVisible: true });
-              // }}
-            />
-          ))}
+          <ScrollView contentContainerStyle={{ flex: 1 }}>
+            {this.state.pills.map((item, key) => (
+              <PillComponent
+                name={item.given_name}
+                description={item.formal_name}
+                take={item.taken}
+                numberOfPills={item.frequency}
+                key={item.id}
+                // onPress={() => {
+                //   this.setState({ isModalVisible: true });
+                // }}
+              />
+            ))}
+          </ScrollView>
         </View>
 
         {/* <Modal isVisible={this.state.isModalVisible}>
@@ -94,9 +99,6 @@ const styles = StyleSheet.create({
     left: 0,
     zIndex: 1000,
     width: "100%",
-
-    // backgroundColor: "yellow",
-
     height: "100%"
   },
   todayContainer: {

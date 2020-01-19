@@ -1,37 +1,84 @@
-{ "medication": [{
-    "id": 1,
-    "given_name": "Green & White Pill", 
-    "formal_name": "Prozac - Fluoxetine (20mg)", 
-    "img": "./assets/prozac_20mg.jpg", 
-    "treatment": "Anti-Depressant", 
-    "frequency": "twice daily", 
-    "taken": "false",
-    "side-effects": [
-      "nausea", "trouble-sleeping", "nervousness", "tremors", "sexual problems"
-    ]
-  }, 
-  {
-    "id": 2,
-    "given_name": "Orange Pill", 
-    "formal_name": "Adderall - Amphetamine (25mg)", 
-    "img": "./assets/adderall_25mg.jpg", 
-    "treatment": "ADHD", 
-    "frequency": "once daily", 
-    "taken": "false",
-    "side-effects": [
-      "stomachache", "headache", "irritability", "decreased appetite", "trouble-sleeping"
-    ]
-  }, 
-  {
-    "id": 3,
-    "given_name": "Round Pale Yellow Pill", 
-    "formal_name": "Clozaril - Clozapine (25mg)", 
-    "img": "./assets/clozapine_25mg.jpg", 
-    "treatment": "Bipolar Disorder", 
-    "frequency": "once daily", 
-    "taken": "false", 
-    "side-effects": [
-      "headache", "tremor", "dizziness", "constipation", "vision problems"
-    ]
-  }]
+{
+  "medication": [
+    {
+      "id": 1,
+      "given_name": "Green & White Pill",
+      "formal_name": "Prozac - Fluoxetine (20mg)",
+      "img": "./assets/prozac_20mg.jpg",
+      "treatment": "Anti-Depressant",
+      "frequency": "twice daily",
+      "taken": "false",
+      "side-effects": [
+        "nausea",
+        "trouble-sleeping",
+        "nervousness",
+        "tremors",
+        "sexual problems"
+      ]
+    },
+    {
+      "id": 2,
+      "given_name": "Orange Pill",
+      "formal_name": "Adderall - Amphetamine (25mg)",
+      "img": "./assets/adderall_25mg.jpg",
+      "treatment": "ADHD",
+      "frequency": "once daily",
+      "taken": "false",
+      "side-effects": [
+        "stomachache",
+        "headache",
+        "irritability",
+        "decreased appetite",
+        "trouble-sleeping"
+      ]
+    },
+    {
+      "id": 3,
+      "given_name": "Round Pale Yellow Pill",
+      "formal_name": "Clozaril - Clozapine (25mg)",
+      "img": "./assets/clozapine_25mg.jpg",
+      "treatment": "Bipolar Disorder",
+      "frequency": "once daily",
+      "taken": "false",
+      "side-effects": [
+        "headache",
+        "tremor",
+        "dizziness",
+        "constipation",
+        "vision problems"
+      ]
+    },
+    {
+      "id": 4,
+      "given_name": "Round Pale Yellow Pill",
+      "formal_name": "Clozaril - Clozapine (25mg)",
+      "img": "./assets/clozapine_25mg.jpg",
+      "treatment": "Bipolar Disorder",
+      "frequency": "once daily",
+      "taken": "false",
+      "side-effects": [
+        "headache",
+        "tremor",
+        "dizziness",
+        "constipation",
+        "vision problems"
+      ]
+    },
+    {
+      "id": 5,
+      "given_name": "Round Pale Yellow Pill",
+      "formal_name": "Clozaril - Clozapine (25mg)",
+      "img": "./assets/clozapine_25mg.jpg",
+      "treatment": "Bipolar Disorder",
+      "frequency": "once daily",
+      "taken": "false",
+      "side-effects": [
+        "headache",
+        "tremor",
+        "dizziness",
+        "constipation",
+        "vision problems"
+      ]
+    }
+  ]
 }
