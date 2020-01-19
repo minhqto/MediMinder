@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { AuthSession } from "expo";
+//import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 0.12,
 
-    width: 335,
+    width: "100%",
     height: 72,
     backgroundColor: "#fff"
   },
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   numberContainer: {
     width: "30%",
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "flex-end",
     alignItems: "baseline"
   },
@@ -45,22 +46,37 @@ const styles = StyleSheet.create({
   capsules: {
     color: "#434343",
     fontSize: 13
+  },
+  shadowView: {
+    backgroundColor: "#FFFFFF50",
+    position: "absolute",
+    width: "100%",
+    height: "100%"
   }
 });
 
-const PillComponent = ({ name, description, numberOfPills }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.nameContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.description}>{description}</Text>
-      </View>
-      <View style={styles.numberContainer}>
-        <Text style={styles.number}>{numberOfPills}</Text>
-        <Text style={styles.capsules}> Capsules</Text>
-      </View>
-    </View>
-  );
-};
+class PillComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      setOverlay: false
+    };
+  }
+  render() {
+    const { name, description, numberOfPills, taken } = this.props;
+    return (
+      <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
+        <View style={styles.nameContainer}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.description}>{description}</Text>
+        </View>
+        <View style={styles.numberContainer}>
+          <Text style={styles.capsules}>{numberOfPills}</Text>
+          <Text>Taken:{taken ? " Yes" : " No"}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
 
 export default PillComponent;
