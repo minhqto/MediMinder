@@ -5,7 +5,7 @@ import Jumbotron from "./components/jumbotron.component";
 export default function App() {
   return (
     <View>
-      <Jumbotron name="hello" />
+      <Jumbotron name="Good morning, Candice G." />
     </View>
   );
 }

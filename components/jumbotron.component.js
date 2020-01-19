@@ -1,37 +1,38 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
 
 const jumbotronStyles = StyleSheet.create({
   jumboStyling: {
-    position: "absolute",
-    width: 375,
-    height: 246,
+    width: "100%",
+    height: 210,
     left: 0,
-    top: 0,
-    backgroundColor: "red"
+    top: 0
   },
   textStyles: {
-    position: "absolute",
-    width: 274,
-    height: 36,
-    left: 55,
-    top: 81,
-    fontFamily: "Poppins",
+    //position: "absolute",
+    textAlign: "center",
+    fontFamily: "sans-serif-medium",
     fontStyle: "normal",
     fontWeight: "normal",
     fontSize: 24,
     lineHeight: 36,
-    color: "#FFFFFF"
+    color: "#FFFFFF",
+    marginTop: 80
   }
 });
 
 const Jumbotron = ({ name }) => {
   return (
     <View>
-      <View style={jumbotronStyles.jumboStyling}>
-        <Text style={jumbotronStyles.textStyles}>{name}</Text>
-      </View>
+      <LinearGradient
+        colors={["#5F9FFF", "#567BFF"]}
+        style={{ padding: 15, alignItems: "center" }}
+      >
+        <View style={jumbotronStyles.jumboStyling}>
+          <Text style={jumbotronStyles.textStyles}>{name}</Text>
+        </View>
+      </LinearGradient>
     </View>
   );
 };
