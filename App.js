@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
 import PillComponent from "./components/pill.component";
+import PillProfile from "./components/pillProfile.component";
 import Jumbotron from "./components/jumbotron.component";
 import medInfo from "./data/medications.json";
 import MediCounter from "./components/mediCounter.component";
@@ -13,7 +14,8 @@ class App extends React.Component {
     this.state = {
       setOverlay: false,
       pills: medInfo.medication, //this is an array
-      isModalVisible: false
+      isModalVisible: false,
+      selectedPill: medInfo.medication[0].id
     };
   }
   toggleModal = () => {
@@ -40,24 +42,10 @@ class App extends React.Component {
             numberOfPills={item.frequency}
             key={item.id}
             onPress={() => {
-              this.setState({ isModalVisible: true });
+              this.setState({ isModalVisible: true, selectedPill: item.id });
             }}
           />
         ))}
-        <Modal isVisible={this.state.isModalVisible}>
-          <View style={{ flex: 1 }}>
-            <View>
-              <Image
-                style={{ width: 500, height: 500, alignContent: "center" }}
-                source={{
-                  uri:
-                    "https://facebook.github.io/react-native/img/tiny_logo.png"
-                }}
-              ></Image>
-            </View>
-            <Button title="Close" onPress={this.toggleModal} />
-          </View>
-        </Modal>
       </View>
     );
   }

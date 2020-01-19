@@ -24,45 +24,31 @@ class PillProfile extends Component {
     return (
       <View style={{ padding: 45 }}>
         {/* Sets modal animation/configuration */}
-        <Modal
-          animationType="fade"
-          transparent={false}
-          visible={this.state.modalVisible}
-        >
-          {/* Actual contents of Modal */}
-          <View style={{ margin: 22 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "flex-start"
-              }}
-            >
-              <TextInput
-                placeholder="Pill Name"
-                style={{
-                  width: "80%",
-                  borderBottomColor: "black",
-                  borderBottomWidth: 1
-                }}
-              />
-              <Text> Adderall - Amphetamine (25mg) </Text>
-              <Text> </Text>
-              <Text> </Text>
-              <Text> </Text>
-            </View>
+
+        {/* Actual contents of Modal */}
+        <View style={{ margin: 22 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "flex-start"
+            }}
+          >
+            <Text style={{ color: "white" }}>
+              Adderall - Amphetamine (25mg)
+            </Text>
+            <Text> </Text>
+            <Text> </Text>
+            <Text> </Text>
           </View>
-          <Button
-            title="Close"
-            onPress={() => this.setModalVisible(!this.state.modalVisible)}
-          />
-        </Modal>
+        </View>
+
         <TouchableHighlight
           onPress={() => {
             this.setModalVisible(true);
           }}
         >
-          <Text> Show Capsule Details </Text>
+          <Text style={{ color: "white" }}> Show Capsule Details </Text>
         </TouchableHighlight>
       </View>
     );
