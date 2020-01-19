@@ -47,38 +47,6 @@
         "constipation",
         "vision problems"
       ]
-    },
-    {
-      "id": 4,
-      "given_name": "Round Pale Yellow Pill",
-      "formal_name": "Clozaril - Clozapine (25mg)",
-      "img": "./assets/clozapine_25mg.jpg",
-      "treatment": "Bipolar Disorder",
-      "frequency": "once daily",
-      "taken": "false",
-      "side-effects": [
-        "headache",
-        "tremor",
-        "dizziness",
-        "constipation",
-        "vision problems"
-      ]
-    },
-    {
-      "id": 5,
-      "given_name": "Round Pale Yellow Pill",
-      "formal_name": "Clozaril - Clozapine (25mg)",
-      "img": "./assets/clozapine_25mg.jpg",
-      "treatment": "Bipolar Disorder",
-      "frequency": "once daily",
-      "taken": "false",
-      "side-effects": [
-        "headache",
-        "tremor",
-        "dizziness",
-        "constipation",
-        "vision problems"
-      ]
     }
   ]
 }
