@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: { height: 0, width: 0 },
 
-    width: "100%",
+    width: 335,
     height: 72,
     backgroundColor: "#fff"
   },
@@ -39,16 +39,23 @@ const styles = StyleSheet.create({
     width: "30%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "baseline"
+    justifyContent: "flex-start",
+    alignItems: "flex-end"
   },
   number: {
     fontSize: 24,
     color: "#567BFF"
   },
   capsules: {
-    color: "#434343",
-    fontSize: 13
+    // color: "#434343",
+    fontWeight: "500",
+    color: "#567BFF",
+    fontSize: 15
+  },
+  taken: {
+    fontSize: 12,
+
+    color: "#434343"
   },
   shadowView: {
     backgroundColor: "#FFFFFF50",
@@ -75,7 +82,7 @@ class PillComponent extends React.Component {
         </View>
         <View style={styles.numberContainer}>
           <Text style={styles.capsules}>{numberOfPills}</Text>
-          <Text>Taken:{taken ? " Yes" : " No"}</Text>
+          <Text style={styles.taken}>Taken:{taken ? " Yes" : " No"}</Text>
         </View>
       </TouchableOpacity>
     );

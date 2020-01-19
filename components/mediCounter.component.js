@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   numStyle: {
     position: "relative",
     fontStyle: "normal",
-    fontWeight: "bold",
+    fontWeight: "500",
     fontSize: 50,
     color: "#567BFF"
   },
