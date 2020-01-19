@@ -88,7 +88,17 @@ class PillComponent extends React.Component {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   };
   render() {
-    const { name, description, numberOfPills, taken } = this.props;
+    const {
+      id,
+      name,
+      description,
+      numberOfPills,
+      taken,
+      imgUrl,
+      treatment,
+      frequency,
+      effects
+    } = this.props;
     if (this.state.isModalVisible) {
       return (
         <Modal isVisible={this.state.isModalVisible}>
@@ -106,7 +116,15 @@ class PillComponent extends React.Component {
           >
             <Text style={{ color: "white" }}>Close</Text>
           </TouchableOpacity>
-          <FeelingComponent />
+          <PillProfile
+            id={id}
+            name={name}
+            description={description}
+            imgUrl={imgUrl}
+            treatment={treatment}
+            frequency={frequency}
+            effects={effects}
+          />
         </Modal>
       );
     }

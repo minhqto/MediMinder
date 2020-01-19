@@ -41,20 +41,24 @@ class App extends React.Component {
             <Text style={styles.todayText}>Today</Text>
           </View>
           {/* The below dynamically loads the medication array and makes pill components! */}
-          <ScrollView contentContainerStyle={{ flex: 1 }}>
-            {this.state.pills.map((item, key) => (
-              <PillComponent
-                name={item.given_name}
-                description={item.formal_name}
-                take={item.taken}
-                numberOfPills={item.frequency}
-                key={item.id}
-                // onPress={() => {
-                //   this.setState({ isModalVisible: true });
-                // }}
-              />
-            ))}
-          </ScrollView>
+
+          {this.state.pills.map((item, key) => (
+            <PillComponent
+              id={item.id}
+              imgUrl={item.img}
+              name={item.given_name}
+              description={item.formal_name}
+              treatment={item.treatment}
+              frequency={item.frequency}
+              effects={item["side-effects"]}
+              take={item.taken}
+              numberOfPills={item.frequency}
+              key={item.id}
+              // onPress={() => {
+              //   this.setState({ isModalVisible: true });
+              // }}
+            />
+          ))}
         </View>
 
         {/* <Modal isVisible={this.state.isModalVisible}>

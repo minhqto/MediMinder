@@ -7,12 +7,14 @@ import {
   View,
   Button,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  Image
 } from "react-native";
 
 import medicationInfo from "../data/medications.json";
 
 const PillProfile = ({
+  id,
   name,
   description,
   imgUrl,
@@ -20,52 +22,57 @@ const PillProfile = ({
   frequency,
   effects
 }) => {
-  return (
-    <View style={style.container}></View>
+  let getImage = id => {
+    if (id == 1) {
+      return (
+        <Image
+          style={{ width: 300, height: 200 }}
+          source={require("../assets/prozac_20mg.jpg")}
+        />
+      );
+    }
+    if (id == 2) {
+      return (
+        <Image
+          style={{ width: 300, height: 200 }}
+          source={require("../assets/adderall_25mg.jpg")}
+        />
+      );
+    }
+    if (id == 3) {
+      return (
+        <Image
+          style={{ width: 300, height: 200 }}
+          source={require("../assets/clozapine_25mg.jpg")}
+        />
+      );
+    }
+  };
 
-    // <View style={{ padding: 45 }}>
-    //   {/* Sets modal animation/configuration */}
-    //   <Modal
-    //     animationType="fade"
-    //     transparent={false}
-    //     visible={this.state.modalVisible}
-    //   >
-    //     {/* Actual contents of Modal */}
-    //     <View style={{ margin: 22 }}>
-    //       <View
-    //         style={{
-    //           flexDirection: "row",
-    //           justifyContent: "space-between",
-    //           alignItems: "flex-start"
-    //         }}
-    //       >
-    //         <TextInput
-    //           placeholder="Pill Name"
-    //           style={{
-    //             width: "80%",
-    //             borderBottomColor: "black",
-    //             borderBottomWidth: 1
-    //           }}
-    //         />
-    //         <Text> Adderall - Amphetamine (25mg) </Text>
-    //         <Text> </Text>
-    //         <Text> </Text>
-    //         <Text> </Text>
-    //       </View>
-    //     </View>
-    //     <Button
-    //       title="Close"
-    //       onPress={() => this.setModalVisible(!this.state.modalVisible)}
-    //     />
-    //   </Modal>
-    //   <TouchableHighlight
-    //     onPress={() => {
-    //       this.setModalVisible(true);
-    //     }}
-    //   >
-    //     <Text> Show Capsule Details </Text>
-    //   </TouchableHighlight>
-    // </View>
+  return (
+    <View style={styles.container}>
+      <View>
+        <Text style={{ textAlign: "center", fontSize: 15 }}>{name}</Text>
+        <Text style={{ textAlign: "center", color: "#434343", fontSize: 13 }}>
+          {description}
+        </Text>
+      </View>
+      {getImage(id)}
+      <Text>
+        <Text style={styles.title}>Treatment: </Text>
+        {treatment}
+      </Text>
+      <Text>
+        <Text style={styles.title}>Frequency: </Text>
+        {frequency}
+      </Text>
+      <Text>
+        <Text style={styles.title}>Possible side-effect: </Text>
+        {effects.map((effect, id) => (
+          <Text key={id}>{effect}, </Text>
+        ))}
+      </Text>
+    </View>
   );
 };
 
@@ -79,12 +86,16 @@ const styles = StyleSheet.create({
     height: 400,
     paddingTop: 10,
     paddingHorizontal: 30,
+    paddingVertical: 20,
     borderRadius: 10,
     shadowOpacity: 0.3,
     shadowRadius: 10,
     shadowColor: "#000",
     shadowOffset: { height: 0, width: 0 },
     backgroundColor: "white"
+  },
+  title: {
+    fontWeight: "500"
   }
 });
 
