@@ -24,12 +24,11 @@ const styles = StyleSheet.create({
     width: "70%"
   },
   name: {
-    fontSize: 16,
-    fontWeight: 500
+    fontSize: 16
   },
   description: {
     fontSize: 12,
-    fontWeight: 300,
+
     color: "#434343"
   },
   numberContainer: {
@@ -41,8 +40,7 @@ const styles = StyleSheet.create({
   },
   number: {
     fontSize: 24,
-    color: "#567BFF",
-    fontWeight: 600
+    color: "#567BFF"
   },
   capsules: {
     color: "#434343",
