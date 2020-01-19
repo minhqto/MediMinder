@@ -9,13 +9,12 @@ const jumbotronStyles = StyleSheet.create({
   },
   textStyles: {
     textAlign: "center",
-    fontFamily: "sans-serif-medium",
     fontStyle: "normal",
     fontWeight: "normal",
     fontSize: 24,
     lineHeight: 36,
     color: "#FFFFFF",
-    marginTop: 80
+    marginTop: 50
   }
 });
 
@@ -27,7 +26,10 @@ const Jumbotron = ({ name }) => {
         style={{ padding: 15, alignItems: "center" }}
       >
         <View style={jumbotronStyles.jumboStyling}>
-          <Text style={jumbotronStyles.textStyles}>{name}</Text>
+          <Text style={jumbotronStyles.textStyles}>
+            Good morning,
+            <Text style={{ fontWeight: "500" }}> {name}</Text>
+          </Text>
         </View>
       </LinearGradient>
     </View>

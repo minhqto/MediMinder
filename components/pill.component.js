@@ -12,9 +12,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
 
     borderRadius: 10,
+
+    elevation: 1,
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
     shadowColor: "#000",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 0.12,
+    shadowOffset: { height: 0, width: 0 },
 
     width: 335,
     height: 72,
