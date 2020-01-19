@@ -1,6 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
-import { AuthSession } from "expo";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  Image
+} from "react-native";
+
+import Modal from "react-native-modal";
+import PillProfile from "./pillProfile.component";
+import FeelingComponent from "./feeling.component";
 //import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
@@ -20,9 +30,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: { height: 0, width: 0 },
 
-    width: "100%",
+    width: 335,
     height: 72,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    marginBottom: 10
   },
   nameContainer: {
     width: "70%"
@@ -39,16 +50,23 @@ const styles = StyleSheet.create({
     width: "30%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "baseline"
+    justifyContent: "flex-start",
+    alignItems: "flex-end"
   },
   number: {
     fontSize: 24,
     color: "#567BFF"
   },
   capsules: {
-    color: "#434343",
-    fontSize: 13
+    // color: "#434343",
+    fontWeight: "500",
+    color: "#567BFF",
+    fontSize: 15
+  },
+  taken: {
+    fontSize: 12,
+
+    color: "#434343"
   },
   shadowView: {
     backgroundColor: "#FFFFFF50",
@@ -62,20 +80,50 @@ class PillComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      setOverlay: false
+      setOverlay: false,
+      isModalVisible: false
     };
   }
+  toggleModal = () => {
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+  };
   render() {
     const { name, description, numberOfPills, taken } = this.props;
+    if (this.state.isModalVisible) {
+      return (
+        <Modal isVisible={this.state.isModalVisible}>
+          <TouchableOpacity
+            style={{
+              alignItems: "center",
+              borderRadius: 15,
+              backgroundColor: "#567BFF",
+              width: 70,
+              alignSelf: "center",
+              padding: 10
+            }}
+            title="Close"
+            onPress={this.toggleModal}
+          >
+            <Text style={{ color: "white" }}>Close</Text>
+          </TouchableOpacity>
+          <FeelingComponent />
+        </Modal>
+      );
+    }
     return (
-      <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {
+          this.setState({ isModalVisible: true });
+        }}
+      >
         <View style={styles.nameContainer}>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
         </View>
         <View style={styles.numberContainer}>
           <Text style={styles.capsules}>{numberOfPills}</Text>
-          <Text>Taken:{taken ? " Yes" : " No"}</Text>
+          <Text style={styles.taken}>Taken:{taken ? " Yes" : " No"}</Text>
         </View>
       </TouchableOpacity>
     );
