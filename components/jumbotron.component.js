@@ -1,7 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+
+import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { AppLoading } from "expo";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import Modal from "react-native-modal";
+import FeelingComponent from "./feeling.component";
 
 const jumbotronStyles = StyleSheet.create({
   jumboStyling: {
@@ -16,46 +19,61 @@ const jumbotronStyles = StyleSheet.create({
     lineHeight: 36,
     color: "#FFFFFF",
     marginTop: 50
+  },
+  icon: {
+    position: "absolute",
+    marginLeft: 10,
+    left: 0,
+    width: 40,
+    backgroundColor: "white"
   }
 });
 
-const Jumbotron = ({ name }) => {
-  return (
-    <View>
-      <Image
-        style={{
-          top: 30,
+class Jumbotron extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      setOverlay: false,
+      isModalVisible: false
+    };
+  }
+  toggleModal = () => {
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+  };
+  render() {
+    const { name } = this.props;
+    if (this.state.isModalVisible) {
+      return (
+        <Modal isVisible={this.state.isModalVisible}>
+          <TouchableOpacity onPress={this.toggleModal}>
+            <Text style={{ color: "white" }}>Close</Text>
+            <FeelingComponent />
+          </TouchableOpacity>
+        </Modal>
+      );
+    }
+    return (
+      <View>
+        <LinearGradient
+          colors={["#5F9FFF", "#567BFF"]}
+          style={{ padding: 15, alignItems: "center" }}
+        >
+          <View style={{ width: "100%" }}>
+            <TouchableOpacity title="Close" onPress={this.toggleModal}>
+              <Text style={{ color: "white", marginTop: 50 }}>Check Mood</Text>
+            </TouchableOpacity>
+          </View>
 
-          zIndex: 1,
-          position: "absolute",
-          right: 350
-        }}
-        source={require("../assets/book-24px.svg")}
-      ></Image>
-      <Image
-        style={{
-          width: 50,
-          top: 30,
-          height: 300,
-          zIndex: 1,
-          position: "absolute",
-          left: 350
-        }}
-        source={require("../assets/Group-17.png")}
-      ></Image>
-      <LinearGradient
-        colors={["#5F9FFF", "#567BFF"]}
-        style={{ padding: 15, alignItems: "center" }}
-      >
-        <View style={jumbotronStyles.jumboStyling}>
-          <Text style={jumbotronStyles.textStyles}>
-            Good morning,
-            <Text style={{ fontWeight: "500" }}> {name}</Text>
-          </Text>
-        </View>
-      </LinearGradient>
-    </View>
-  );
-};
+          <View style={jumbotronStyles.jumboStyling}>
+            <Text style={jumbotronStyles.textStyles}>
+              Good morning,
+              <Text style={{ fontWeight: "500" }}> {name}</Text>
+            </Text>
+          </View>
+        </LinearGradient>
+      </View>
+    );
+  }
+}
 
 export default Jumbotron;

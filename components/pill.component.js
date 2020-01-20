@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     // color: "#434343",
     fontWeight: "500",
     color: "#567BFF",
-    fontSize: 15
+    fontSize: 13
   },
   taken: {
     fontSize: 12,

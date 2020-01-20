@@ -14,7 +14,6 @@ import medInfo from "./data/medications.json";
 import MediCounter from "./components/mediCounter.component";
 import FeelingComponent from "./components/feeling.component";
 
-//import PillOverlay from "./components/pilloverlay.component";
 import Modal from "react-native-modal";
 //import { ScrollView } from "react-native-gesture-handler";
 
@@ -54,42 +53,12 @@ class App extends React.Component {
               take={item.taken}
               numberOfPills={item.frequency}
               key={item.id}
-              // onPress={() => {
-              //   this.setState({ isModalVisible: true });
-              // }}
             />
           ))}
         </View>
-
-        {/* <Modal isVisible={this.state.isModalVisible}>
-          <View style={{ flex: 1 }}>
-            <View>
-              <Image
-                style={{ width: 500, height: 500, alignContent: "center" }}
-                source={{
-                  uri:
-                    "https://facebook.github.io/react-native/img/tiny_logo.png"
-                }}
-              ></Image>
-            </View>
-            <Button title="Close" onPress={this.toggleModal} />
-          </View>
-        </Modal> */}
       </View>
     );
   }
-}
-
-{
-  /* <PillComponent
-          name={medInfo.medication[0].given_name}
-          description={medInfo.medication[0].formal_name}
-          numberOfPills={medInfo.medication[0].frequency}
-          taken={medInfo.medication[0].taken}
-          onPress={() => {
-            this.setState({ setOverlay: true });
-          }}
-        /> */
 }
 
 const styles = StyleSheet.create({
