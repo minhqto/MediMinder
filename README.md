@@ -15,3 +15,5 @@ How to run the application:
 1. Download the repo
 2. Download expo on your mobile device and expo on your computer: https://facebook.github.io/react-native/docs/getting-started
 3. Check out the app!
+
+Current sprint: Enable firebase as a backend for Medi-Minder

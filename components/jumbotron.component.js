@@ -1,5 +1,4 @@
 import React from "react";
-
 import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
