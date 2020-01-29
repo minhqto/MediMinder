@@ -5,6 +5,7 @@
       "given_name": "Green & White Pill",
       "formal_name": "Prozac - Fluoxetine (20mg)",
       "img": "prozac_20mg.jpg",
+
       "treatment": "Anti-Depressant",
       "frequency": "twice daily",
       "taken": "false",
@@ -20,7 +21,9 @@
       "id": 2,
       "given_name": "Orange Pill",
       "formal_name": "Adderall - Amphetamine (25mg)",
+
       "img": "adderall_25mg.jpg",
+
       "treatment": "ADHD",
       "frequency": "once daily",
       "taken": "false",
@@ -36,6 +39,7 @@
       "id": 3,
       "given_name": "Round Pale Yellow Pill",
       "formal_name": "Clozaril - Clozapine (25mg)",
+
       "img": "clozapine_25mg.jpg",
       "treatment": "Bipolar Disorder",
       "frequency": "once daily",
