@@ -21,12 +21,9 @@ class MyText extends Component {
 
   render() {
     const { children, style } = this.props;
+    const myStyle = { ...style, fontFamily: "Poppins" };
     if (this.state.fontLoaded) {
-      return (
-        <Text style={{ fontFamily: "Poppins" }}>
-          <Text style={style}>{children}</Text>
-        </Text>
-      );
+      return <Text style={myStyle}>{children}</Text>;
     }
     return null;
   }

@@ -7,8 +7,8 @@ export default StyleSheet.create({
     alignSelf: "center",
     flexDirection: "column",
     justifyContent: "space-evenly",
-    marginTop: "30%",
-    height: normalize(468),
+    marginTop: normalize(100),
+    height: normalize(450),
     width: normalize(320),
     paddingHorizontal: normalize(50),
     paddingVertical: normalize(10),
@@ -19,7 +19,8 @@ export default StyleSheet.create({
   name: {
     textAlign: "center",
     fontSize: normalize(15),
-    color: "#567BFF"
+    color: "#567BFF",
+    fontWeight: "bold"
   },
 
   description: {
@@ -27,6 +28,19 @@ export default StyleSheet.create({
     color: "#232323",
     fontSize: normalize(13)
   },
+  title: {
+    fontWeight: "bold"
+  },
 
-  title: {}
+  button: {
+    backgroundColor: "#567BFF",
+    height: normalize(45),
+    paddingVertical: normalize(12),
+    borderRadius: normalize(10)
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    alignSelf: "center",
+    fontWeight: "bold"
+  }
 });

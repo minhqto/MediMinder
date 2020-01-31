@@ -33,18 +33,14 @@ export default StyleSheet.create({
   text: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "center",
-
-    width: normalize(81),
     height: normalize(90)
   },
   streakStyle: {
     position: "relative",
-    width: normalize(82),
     fontSize: normalize(12),
-    color: "#232323",
-    marginTop: normalize(50)
+    color: "#232323"
   },
   numStyle: {
     position: "relative",

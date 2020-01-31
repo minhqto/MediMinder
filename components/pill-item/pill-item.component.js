@@ -19,6 +19,8 @@ class PillItem extends Component {
     this.state = {
       modalVisible: false
     };
+
+    this.setModalVisible = this.setModalVisible.bind(this);
   }
 
   setModalVisible(visible) {
@@ -79,7 +81,7 @@ class PillItem extends Component {
             }}
           ></TouchableOpacity>
 
-          <PillProfile {...this.props} />
+          <PillProfile {...this.props} setModalVisible={this.setModalVisible} />
         </Modal>
       </View>
     );

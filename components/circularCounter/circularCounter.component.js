@@ -14,7 +14,7 @@ const CircularCounter = ({ streak }) => {
       <View style={styles["innerCircle"]}>
         <View style={styles["text"]}>
           <MyText style={styles["streakStyle"]}>medi streak</MyText>
-          <Text style={styles["numStyle"]}>{streak}</Text>
+          <MyText style={styles["numStyle"]}>{streak}</MyText>
           <MyText style={styles["dayStyle"]}>Days</MyText>
         </View>
       </View>
