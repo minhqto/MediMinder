@@ -6,8 +6,9 @@ export default StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignSelf: "center",
 
+    marginHorizontal: 5,
+    marginVertical: normalize(10),
     paddingVertical: normalize(25),
     paddingHorizontal: normalize(25),
     width: normalize(335),
@@ -16,7 +17,7 @@ export default StyleSheet.create({
     backgroundColor: "#FFFFFF",
 
     elevation: 1,
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.1,
     shadowRadius: 10,
     shadowColor: "#000000",
     shadowOffset: { height: 0, width: 0 }
