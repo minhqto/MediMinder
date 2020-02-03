@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -7,6 +7,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeScreen from "./screens/HomeScreen/HomeScreen.screen";
 import PrescriptionScreen from "./screens/PrescriptionScreen/PrescriptionScreen.screen";
 import normalize from "react-native-normalize";
+
+import { Text, View, SafeAreaView } from "react-native";
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -44,4 +46,10 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
-export default createAppContainer(TabNavigator);
+const AppContainer = createAppContainer(TabNavigator);
+class App extends Component {
+  render() {
+    return <AppContainer />;
+  }
+}
+export default App;

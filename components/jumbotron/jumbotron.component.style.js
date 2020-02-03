@@ -5,8 +5,8 @@ export default StyleSheet.create({
   gradient: {
     position: "absolute",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
     width: "100%",
     height: normalize(246)
   },
