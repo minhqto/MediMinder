@@ -30,28 +30,30 @@ export default StyleSheet.create({
     borderRadius: normalize(136 / 2),
     backgroundColor: "#FFFFFF"
   },
+
   text: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     alignItems: "center",
-    height: normalize(90)
+    height: normalize(55)
   },
+
   streakStyle: {
     position: "relative",
-    fontSize: normalize(12),
+    fontSize: normalize(13),
     color: "#232323"
   },
+
   numStyle: {
     position: "relative",
-    fontWeight: "400",
     color: "#567BFF",
     fontSize: normalize(52),
     margin: normalize(-10)
   },
+
   dayStyle: {
     position: "relative",
-    fontWeight: "normal",
     fontSize: normalize(15),
     color: "#232323"
   }

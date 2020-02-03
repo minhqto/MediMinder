@@ -11,7 +11,7 @@ export default StyleSheet.create({
     height: normalize(246)
   },
   text: {
-    marginTop: normalize(81),
+    marginTop: normalize(70),
     color: "#FFFFFF",
     fontSize: normalize(24)
   },
@@ -19,6 +19,6 @@ export default StyleSheet.create({
     color: "#FFFFFF"
   },
   name: {
-    fontWeight: "900"
+    fontWeight: "500"
   }
 });
