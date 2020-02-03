@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-import {
-  FlatList,
-  View,
-  Text,
-  Alert,
-  SafeAreaView,
-  Animated
-} from "react-native";
+import { FlatList, View, SafeAreaView, Animated } from "react-native";
+
 import PillItem from "../pill-item/pill-item.component";
 import Swipeable from "react-native-gesture-handler/Swipeable";
-import MyText from "../myText/myText.component";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import styles from "./pillPreview.component.style";
 
+/**
+ * This class generates array of swipeable pill item components
+ */
 class PillPreview extends Component {
   constructor() {
     super();
@@ -79,8 +75,8 @@ class PillPreview extends Component {
           renderItem={({ item }) => (
             <SwipeablePillItem
               item={item}
-              onSwipeFromLeft={() => this.removePill(item.id)}
-              onRightPress={() => alert("press right")}
+              onSwipeFromLeft={() => alert("swipe left")}
+              onRightPress={() => this.removePill(item.id)}
             />
           )}
           keyExtractor={item => item.id.toString()}
@@ -90,31 +86,51 @@ class PillPreview extends Component {
   }
 }
 
+const SwipeablePillItem = ({ item, onSwipeFromLeft, onRightPress }) => {
+  return (
+    <Swipeable
+      renderLeftActions={LeftActions}
+      onSwipeableLeftOpen={onSwipeFromLeft}
+      renderRightActions={(progress, dragX) => (
+        <RightActions
+          progress={progress}
+          dragX={dragX}
+          onPress={onRightPress}
+        />
+      )}
+    >
+      <PillItem {...item} />
+    </Swipeable>
+  );
+};
+
 const LeftActions = (progress, dragX) => {
   const scale = dragX.interpolate({
     inputRange: [0, 100],
-    outputRange: [0, 1.5],
+    outputRange: [0, 1],
     extrapolate: "clamp"
   });
   return (
     <View style={styles.leftActions}>
-      <Animated.Text
-        style={[styles.leftActionsText, { transform: [{ scale }] }]}
-      >
+      <Animated.Text style={[styles.ActionsText, { transform: [{ scale }] }]}>
         Taken
       </Animated.Text>
     </View>
   );
 };
 
-const SwipeablePillItem = ({ item, onSwipeFromLeft, onRightPress }) => {
+const RightActions = ({ progress, dragX, onPress }) => {
+  const scale = dragX.interpolate({
+    inputRange: [-100, 0],
+    outputRange: [1, 0],
+    extrapolate: "clamp"
+  });
   return (
-    <Swipeable
-      renderLeftActions={LeftActions}
-      onSwipeableLeftOpen={onSwipeFromLeft}
-    >
-      <PillItem {...item} />
-    </Swipeable>
+    <TouchableOpacity style={styles.rightActions} onPress={onPress}>
+      <Animated.Text style={[styles.ActionsText, { transform: [{ scale }] }]}>
+        Delete
+      </Animated.Text>
+    </TouchableOpacity>
   );
 };
 

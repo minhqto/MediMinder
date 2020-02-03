@@ -1,25 +1,47 @@
 import React from "react";
-import { View, Text, ScrollView, Image, SafeAreaView } from "react-native";
-import Jumbotron from "./components/jumbotron/jumbotron.component";
-import CircularCounter from "./components/circularCounter/circularCounter.component";
-import PillItem from "./components/pill-item/pill-item.component";
 
-import styles from "./style";
-import PillPreview from "./components/pillPreview/pillPreview.component";
+import { createAppContainer } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 
-const App = () => (
-  // <SafeAreaView style={styles.container}>
-  <ScrollView style={styles.container} alwaysBounceVertical={false}>
-    <View>
-      <View style={{ height: 360 }}>
-        <Jumbotron name="Viet" />
-        <CircularCounter streak={30} />
-      </View>
+import Ionicons from "react-native-vector-icons/Ionicons";
+import HomeScreen from "./screens/HomeScreen/HomeScreen.screen";
+import PrescriptionScreen from "./screens/PrescriptionScreen/PrescriptionScreen.screen";
+import normalize from "react-native-normalize";
 
-      <PillPreview />
-    </View>
-  </ScrollView>
-  // </SafeAreaView>
+const TabNavigator = createBottomTabNavigator(
+  {
+    Home: HomeScreen,
+    Prescription: PrescriptionScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+
+        let iconName;
+        if (routeName === "Home") {
+          iconName = focused
+            ? "ios-information-circle"
+            : "ios-information-circle-outline";
+        } else if (routeName === "Prescription") {
+          iconName = focused ? "ios-list-box" : "ios-list";
+        }
+
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
+      }
+    }),
+
+    tabBarOptions: {
+      showLabel: false,
+      tabStyle: {
+        paddingVertical: normalize(12)
+      },
+
+      activeTintColor: "#567BFF",
+      inactiveTintColor: "gray"
+    }
+  }
 );
 
-export default App;
+export default createAppContainer(TabNavigator);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, Button, TouchableOpacity, Image } from "react-native";
-
+import normalize from "react-native-normalize";
 import styles from "./pillProfile.component.style";
 import MyText from "../myText/myText.component";
 
@@ -21,24 +21,24 @@ const PillProfile = ({
       </View>
 
       <Image
-        style={{ width: "100%", height: 120 }}
+        style={{ width: "100%", height: normalize(120) }}
         source={require("../../assets/prozac_20mg.jpg")}
       />
 
-      <MyText>
-        <Text style={styles.title}>Treatment: </Text>
-        {treatment}
-      </MyText>
+      <View>
+        <MyText style={styles.title}>Treatment: </MyText>
+        <MyText>{treatment}</MyText>
+      </View>
 
-      <MyText>
-        <Text style={styles.title}>Frequency: </Text>
-        {frequency}
-      </MyText>
+      <View>
+        <MyText style={styles.title}>Frequency: </MyText>
+        <MyText>{frequency}</MyText>
+      </View>
 
-      <MyText>
-        <Text style={styles.title}>Possible side-effect: </Text>
-        {effects}
-      </MyText>
+      <View>
+        <MyText style={styles.title}>Possible side-effect: </MyText>
+        <MyText>{effects}</MyText>
+      </View>
 
       <TouchableOpacity
         style={styles.button}

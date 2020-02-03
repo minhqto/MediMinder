@@ -7,7 +7,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
 
-    marginHorizontal: 5,
+    marginHorizontal: normalize(5),
     marginVertical: normalize(10),
     paddingVertical: normalize(25),
     paddingHorizontal: normalize(25),
@@ -28,7 +28,8 @@ export default StyleSheet.create({
   },
 
   name: {
-    fontSize: normalize(16)
+    fontSize: normalize(16),
+    fontWeight: "500"
   },
 
   description: {
@@ -46,7 +47,8 @@ export default StyleSheet.create({
 
   number: {
     fontSize: normalize(30),
-    color: "#567BFF"
+    color: "#567BFF",
+    fontWeight: "500"
   },
 
   text: {
