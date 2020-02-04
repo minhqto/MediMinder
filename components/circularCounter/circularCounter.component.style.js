@@ -28,28 +28,20 @@ export default StyleSheet.create({
     width: normalize(136),
     height: normalize(136),
     borderRadius: normalize(136 / 2),
-    backgroundColor: "#FFFFFF"
-  },
-
-  text: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    height: normalize(55)
+    backgroundColor: "#FFFFFF",
+    paddingVertical: normalize(33)
   },
 
   streakStyle: {
     position: "relative",
-    fontSize: normalize(13),
+    fontSize: normalize(12),
     color: "#232323"
   },
 
   numStyle: {
     position: "relative",
     color: "#567BFF",
-    fontSize: normalize(52),
-    margin: normalize(-10)
+    fontSize: normalize(52)
   },
 
   dayStyle: {

@@ -6,6 +6,7 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import styles from "./pillPreview.component.style";
 
+import img from "../../assets/adderall_25mg.jpg";
 /**
  * This class generates array of swipeable pill item components
  */
@@ -22,7 +23,7 @@ class PillPreview extends Component {
           treatment: "Anti-Depressant",
           effects:
             "nausea,trouble-sleeping,nervousness,tremors,sexual problems",
-          imageUrl: "comming soon"
+          imageUrl: require("../../assets/adderall_25mg.jpg")
         },
         {
           id: 2,
@@ -32,7 +33,7 @@ class PillPreview extends Component {
           treatment: "Anti-Depressant",
           effects:
             "nausea,trouble-sleeping,nervousness,tremors,sexual problems",
-          imageUrl: "comming soon"
+          imageUrl: require("../../assets/clozapine_25mg.jpg")
         },
         {
           id: 3,
@@ -42,7 +43,7 @@ class PillPreview extends Component {
           treatment: "Anti-Depressant",
           effects:
             "nausea,trouble-sleeping,nervousness,tremors,sexual problems",
-          imageUrl: "comming soon"
+          imageUrl: require("../../assets/prozac_20mg.jpg")
         },
         {
           id: 4,
@@ -52,7 +53,7 @@ class PillPreview extends Component {
           treatment: "Anti-Depressant",
           effects:
             "nausea,trouble-sleeping,nervousness,tremors,sexual problems",
-          imageUrl: "comming soon"
+          imageUrl: require("../../assets/adderall_25mg.jpg")
         }
       ]
     };

@@ -12,11 +12,9 @@ const CircularCounter = ({ streak }) => {
       style={styles.outerCircle}
     >
       <View style={styles["innerCircle"]}>
-        <View style={styles["text"]}>
-          <MyText style={styles["streakStyle"]}>medi streak</MyText>
-          <MyText style={styles["numStyle"]}>{streak}</MyText>
-          <MyText style={styles["dayStyle"]}>Days</MyText>
-        </View>
+        <MyText style={styles["streakStyle"]}>medi streak</MyText>
+        <MyText style={styles["numStyle"]}>{streak}</MyText>
+        <MyText style={styles["dayStyle"]}>Days</MyText>
       </View>
     </LinearGradient>
   );

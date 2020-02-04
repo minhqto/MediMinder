@@ -22,7 +22,7 @@ const PillProfile = ({
 
       <Image
         style={{ width: "100%", height: normalize(120) }}
-        source={require("../../assets/prozac_20mg.jpg")}
+        source={imageUrl}
       />
 
       <View>
